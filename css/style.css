@@ -1,0 +1,144 @@
+*{
+	padding: 0px;
+}
+
+body {
+	background-color: #f4f4f4; /*sets background colour*/
+	color: #555; /*sets text colour*/
+	font-family: Arial, Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
+	font-size: 16px; /*sets font size*/
+	line-height: 1.6em; /*sets line-height(space b/w lines) to 1.6(recommended)*/
+	margin: 0; /*zero out the margins*/
+}
+
+/*Everything is in container. We only want it to take up 94% so some white space on either side*/
+.container {
+	width: 94%;	/*sets width. Class container CAN ONLY BE 80% OF ITS CONTAINING ELEMENT. NOTE: should use % NOT px B/C then element can resize instead of getting cut off*/
+	margin: auto; /*margin: auto MEANS THE LEFT/RIGHT MARGINS ARE AUTOMATICALLY SET BASED ON THE CONTAINER(& width u set)*/
+	/*overflow PROPERTY SPECIFIES WHETHER TO CLIP CONTENT(still show content)  O R  ADD SCROLLBARS
+	SCROLLBAR WHEN CONTENT IS TOO BIG FOR SPECIFIED AREA.(scroll, hidden, auto, or visible(default))*/
+	overflow: hidden; /*sets overflow hidden so when content too big NO SCROLLBAR*/ 
+}
+
+/*Header that says N O X C I E L*/
+.main-header {
+	background-image: url('../images/noxciel-banner.jpg'); /*sets background colour*/
+	color: white; /*sets text colour*/
+	height: 150px;
+	padding: 20px;
+	letter-spacing: 70px;
+	font-weight: bold;
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+
+/*art side take up 80% (right)*/
+.art-side {
+	background-color: #f4f4f4;
+ 	float: right; /*floats main section to the left*/
+ 	width: 80%; /* main(which is our main paragraph ting) can only take up 70% OF ITS CONTAINING ELEMENT. 
+ 	NOTE: width should be % NOT px B/C then element can resize*/
+ 	padding: 0px; /*removes padding*/
+ 	box-sizing: border-box; /*INCLUDES THE PADDING AND BORDER INTO THE ELEMENT's TOTAL WIDTH(and height)*/
+ }
+
+.art-side .row {
+	padding-top: 30px;
+}
+
+.art-side img {
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.art-side img:hover {
+	opacity: 0.5;
+	transition:opacity 0.3s;
+}
+
+/*info-side take up 20% (left) */
+ .info-side {
+ 	font-family: Arial, Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
+	font-size: 16px;
+ 	color: #000;
+ 	float: left;
+ 	width: 20%;
+ 	padding: 0;
+ 	padding-right: 30px;
+ 	box-sizing: border-box;
+ }
+
+.info-side .main-logo {
+	padding-top: 30px;
+	border: none;
+	display: block;
+	margin: 0 auto;
+}
+
+
+.info-side h3 {
+	padding-top: 10px;
+}
+
+
+.info-side p {
+	color: #383838;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-weight: bold;
+}
+
+
+.info-side .pic:hover {
+	opacity: 0.5;
+	transition:opacity 0.3s;
+}
+
+.info-side #description {
+	text-align: center;
+	line-height: 5px;
+}
+
+
+.info-side ul {
+	width: 100%;
+    margin: auto;
+	padding-left: 0px;
+	list-style: none;
+}
+
+.info-side li {
+	margin: 0 0 30px 0;
+}
+
+.info-side a{
+	letter-spacing: 2px;
+	color: black;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+
+
+
+@media(max-width: 700px) {
+/*ANYTHING INSIDE HERE WILL ONLY BE IN EFFECT IF THE BROWSER WINDOW IS 600px OR SMALLER*/	
+/*we want to remove the float from main section paragraph thing and 
+sidebar so they're not squished together but instead ON TOP OF EACH OTHER*/
+
+	/*SELECTS THE ELEMENT with ID main*/
+	.info-side {
+		width: 100%; /*sets width to 100% OF ITS CONTAINING ELEMENT. use % so can resize*/
+		float: none; /*deletes float*/
+	}
+
+	/*SELECTS THE ELEMENT with ID sidebade*/
+	.art-side {
+		width: 100%; /*sets width to 100% OF ITS CONTAINING ELEMENT. use % so can resize*/
+		float: none; /*deletes float*/
+	}
+}
