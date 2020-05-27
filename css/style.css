@@ -3,7 +3,7 @@
 }
 
 body {
-	background-color: #f4f4f4; /*sets background colour*/
+	background-color: #f4f4f4;
 	color: #555; /*sets text colour*/
 	font-family: Arial, Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
 	font-size: 16px; /*sets font size*/
@@ -52,7 +52,7 @@ body {
 
 .art-side img {
 	padding: 5px;
-	border-radius: 10px;
+	border-radius: 5px;
 }
 
 .art-side img:hover {
@@ -60,10 +60,12 @@ body {
 	transition:opacity 0.3s;
 }
 
+
 /*info-side take up 20% (left) */
  .info-side {
  	font-family: Arial, Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
 	font-size: 16px;
+	background-color: white;
  	color: #000;
  	float: left;
  	width: 20%;
@@ -79,19 +81,17 @@ body {
 	margin: 0 auto;
 }
 
-
 .info-side h3 {
 	padding-top: 10px;
 }
 
-
 .info-side p {
 	color: #383838;
-	padding-top: 10px;
+	padding-top: 5px;
 	padding-bottom: 10px;
+	text-align: center;
 	font-weight: bold;
 }
-
 
 .info-side .pic:hover {
 	opacity: 0.5;
@@ -103,7 +103,6 @@ body {
 	line-height: 5px;
 }
 
-
 .info-side ul {
 	width: 100%;
     margin: auto;
@@ -113,6 +112,7 @@ body {
 
 .info-side li {
 	margin: 0 0 30px 0;
+	padding-left: 40px; 
 }
 
 .info-side a{
@@ -121,6 +121,386 @@ body {
 	text-decoration: none;
 	font-weight: bold;
 }
+
+
+
+
+
+
+/*modal is the entire pop up, including THE DARK BACKGROUND and x button and everything*/
+/*PIC ONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
+.modal1 { 
+	display: none; /*HIDES POP UP INITIALLY*/
+	position: fixed;
+	z-index: 1; /*z-index is the ORDER OF ELEMENTS, the higher the index, the more up-front its gonna be*/
+	left: 0; /*start left and top*/
+	top: 0;
+	width: 100%; /*WANT POP UP TO TAKE UP THE WHOLE WINDOW*/
+	height: 100%;
+	overflow: auto; /*WILL ENABLE SCROLLBAR IF NEEDED*/
+	background-color: rgba(0,0,0,0.5);  /*DARK BACKGROUND. rgba adds colour but ALSO OPACITY(last parameter)*/
+}
+
+/*THIS IS THE CONTENT(THE PICTURE AND x button)*/
+.modal-content1 {
+	background-color: white;
+	margin: 5% auto; /*20% down FROM THE TOP OF SCREEN, left and right are auto so centered*/
+	padding: 10px;
+	width: 60%;
+	/*box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 2);	no box shadow*/
+}
+
+/*CLOSE BUTTON*/
+.closeBtn1 {
+	color: darkgrey; /*LIGHT GREY*/
+	float: right; /*FLOAT RIGHT TOP*/
+	font-size: 50px; /*BIGGER BUTTON*/
+}
+
+/*WHEN BUTTON HOVERED OVER*/
+.closeBtn1:hover{
+	color: #000; /*BLACK*/
+	text-decoration: none; /*NO UNDERLINE*/
+	cursor: pointer; /*USER's CURSOR TURNS TO A POINTER WHEN HOVERED OVER*/
+}
+
+/*WHEN BUTTON HOVERED OVER*/
+.closeBtn1:focus{ 
+	color: #000; /*BLACK*/
+	text-decoration: none; /*NO UNDERLINE*/
+	cursor: pointer; /*USER's CURSOR TURNS TO A POINTER WHEN HOVERED OVERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR*/
+}
+
+/*PADDING LEFT B/C OF THAT WEIRD BLANK CHUNK ON THE RIGHT OF IMAGE*/
+.modal-content1 img {
+	padding-left: 60px;
+}
+
+
+
+
+
+
+.modal2 { /*PIC TWOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO*/
+	display: none; /*HIDES POP UP INITIALLY*/
+	position: fixed;
+	z-index: 1; /*z-index is the ORDER OF ELEMENTS, the higher the index, the more up-front its gonna be*/
+	left: 0; /*start left and top*/
+	top: 0;
+	width: 100%; /*WANT POP UP TO TAKE UP THE WHOLE WINDOW*/
+	height: 100%;
+	overflow: auto; /*WILL ENABLE SCROLLBAR IF NEEDED*/
+	background-color: rgba(0,0,0,0.5);  /*DARK BACKGROUND. rgba adds colour but ALSO OPACITY(last parameter)*/
+}
+.modal-content2 {
+	background-color: white;
+	margin: 5% auto;
+	padding: 10px;
+	width: 60%;
+}
+.closeBtn2 {
+	color: darkgrey; 
+	float: right; 
+	font-size: 50px; 
+}
+.closeBtn2:hover{
+	color: #000; 
+	text-decoration: none; 
+	cursor: pointer; 
+}
+.closeBtn2:focus{ 
+	color: #000; 
+	text-decoration: none;
+	cursor: pointer; 
+}
+.modal-content2 img {
+	padding-left: 60px;
+}
+
+
+
+
+
+.modal3 { /*PIC THREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
+	display: none; 
+	position: fixed;
+	z-index: 1; 
+	left: 0; 
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	overflow: auto; 
+	background-color: rgba(0,0,0,0.5);  
+}
+.modal-content3 {
+	background-color: white;
+	margin: 5% auto;
+	padding: 10px;
+	width: 60%;
+}
+.closeBtn3 {
+	color: darkgrey; 
+	float: right; 
+	font-size: 50px; 
+}
+.closeBtn3:hover{
+	color: #000; 
+	text-decoration: none; 
+	cursor: pointer; 
+}
+.closeBtn3:focus{ 
+	color: #000; 
+	text-decoration: none;
+	cursor: pointer; 
+}
+.modal-content3 img {
+	padding-left: 60px;
+}
+
+
+
+
+.modal4 { /*PIC FOURRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR*/
+	display: none; 
+	position: fixed;
+	z-index: 1; 
+	left: 0; 
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	overflow: auto; 
+	background-color: rgba(0,0,0,0.5);  
+}
+.modal-content4 {
+	background-color: white;
+	margin: 5% auto;
+	padding: 10px;
+	width: 60%;
+}
+.closeBtn4 {
+	color: darkgrey; 
+	float: right; 
+	font-size: 50px; 
+}
+.closeBtn4:hover{
+	color: #000; 
+	text-decoration: none; 
+	cursor: pointer; 
+}
+.closeBtn4:focus{ 
+	color: #000; 
+	text-decoration: none;
+	cursor: pointer; 
+}
+.modal-content4 img {
+	padding-left: 60px;
+}
+
+
+
+
+.modal5 { /*PIC FIVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
+	display: none; 
+	position: fixed;
+	z-index: 1; 
+	left: 0; 
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	overflow: auto; 
+	background-color: rgba(0,0,0,0.5);  
+}
+.modal-content5 {
+	background-color: white;
+	margin: 5% auto;
+	padding: 10px;
+	width: 60%;
+}
+.closeBtn5 {
+	color: darkgrey; 
+	float: right; 
+	font-size: 50px; 
+}
+.closeBtn5:hover{
+	color: #000; 
+	text-decoration: none; 
+	cursor: pointer; 
+}
+.closeBtn5:focus{ 
+	color: #000; 
+	text-decoration: none;
+	cursor: pointer; 
+}
+.modal-content5 img {
+	padding-left: 60px;
+}
+
+
+
+
+.modal6 { /*PIC SIXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
+	display: none; 
+	position: fixed;
+	z-index: 1; 
+	left: 0; 
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	overflow: auto; 
+	background-color: rgba(0,0,0,0.5);  
+}
+.modal-content6 {
+	background-color: white;
+	margin: 5% auto;
+	padding: 10px;
+	width: 60%;
+}
+.closeBtn6 {
+	color: darkgrey; 
+	float: right; 
+	font-size: 50px; 
+}
+.closeBtn6:hover{
+	color: #000; 
+	text-decoration: none; 
+	cursor: pointer; 
+}
+.closeBtn6:focus{ 
+	color: #000; 
+	text-decoration: none;
+	cursor: pointer; 
+}
+.modal-content6 img {
+	padding-left: 60px;
+}
+
+
+
+
+.modal7 { /*PIC SEVENNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN*/
+	display: none; 
+	position: fixed;
+	z-index: 1; 
+	left: 0; 
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	overflow: auto; 
+	background-color: rgba(0,0,0,0.5);  
+}
+.modal-content7 {
+	background-color: white;
+	margin: 5% auto;
+	padding: 10px;
+	width: 60%;
+}
+.closeBtn7 {
+	color: darkgrey; 
+	float: right; 
+	font-size: 50px; 
+}
+.closeBtn7:hover{
+	color: #000; 
+	text-decoration: none; 
+	cursor: pointer; 
+}
+.closeBtn7:focus{ 
+	color: #000; 
+	text-decoration: none;
+	cursor: pointer; 
+}
+.modal-content7 img {
+	padding-left: 60px;
+}
+
+
+
+
+.modal8 { /*PIC EIGHTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT*/
+	display: none; 
+	position: fixed;
+	z-index: 1; 
+	left: 0; 
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	overflow: auto; 
+	background-color: rgba(0,0,0,0.5);  
+}
+.modal-content8 {
+	background-color: white;
+	margin: 5% auto;
+	padding: 10px;
+	width: 60%;
+}
+.closeBtn8 {
+	color: darkgrey; 
+	float: right; 
+	font-size: 50px; 
+}
+.closeBtn8:hover{
+	color: #000; 
+	text-decoration: none; 
+	cursor: pointer; 
+}
+.closeBtn8:focus{ 
+	color: #000; 
+	text-decoration: none;
+	cursor: pointer; 
+}
+.modal-content8 img {
+	padding-left: 60px;
+}
+
+
+
+
+.modal9 { /*PIC NINEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
+	display: none; 
+	position: fixed;
+	z-index: 1; 
+	left: 0; 
+	top: 0;
+	width: 100%; 
+	height: 100%;
+	overflow: auto; 
+	background-color: rgba(0,0,0,0.5);  
+}
+.modal-content9 {
+	background-color: white;
+	margin: 5% auto;
+	padding: 10px;
+	width: 60%;
+}
+.closeBtn9 {
+	color: darkgrey; 
+	float: right; 
+	font-size: 50px; 
+}
+.closeBtn9:hover{
+	color: #000; 
+	text-decoration: none; 
+	cursor: pointer; 
+}
+.closeBtn9:focus{ 
+	color: #000; 
+	text-decoration: none;
+	cursor: pointer; 
+}
+.modal-content9 img {
+	padding-left: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
