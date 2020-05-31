@@ -3,13 +3,25 @@
 }
 
 body {
-	background-color: #f4f4f4;
+	/*background-color: #f4f4f4;*/
+	background-color: aquamarine;
 	color: #555; /*sets text colour*/
 	font-family: Arial, Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
-	font-size: 16px; /*sets font size*/
 	line-height: 1.6em; /*sets line-height(space b/w lines) to 1.6(recommended)*/
 	margin: 0; /*zero out the margins*/
 }
+
+
+
+/*Header that says N O X C I E L*/
+.main-header {
+	background-image: url('../images/noxciel-banner.jpg'); /*sets background colour*/
+	background-size: 100%;       /* NEED THESE*/
+	background-position: center; /*NEED THESE, always centers the image*/
+	height: 190px;
+}
+
+
 
 /*Everything is in container. We only want it to take up 94% so some white space on either side*/
 .container {
@@ -20,59 +32,51 @@ body {
 	overflow: hidden; /*sets overflow hidden so when content too big NO SCROLLBAR*/ 
 }
 
-/*Header that says N O X C I E L*/
-.main-header {
-	background-image: url('../images/noxciel-banner.jpg'); /*sets background colour*/
-	color: white; /*sets text colour*/
-	height: 150px;
-	padding: 20px;
-	letter-spacing: 70px;
-	font-weight: bold;
-	font-size: 40px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-}
 
 
 /*art side take up 80% (right)*/
 .art-side {
-	background-color: #f4f4f4;
- 	float: right; /*floats main section to the left*/
+	/*background-color: #f4f4f4;*/
+	background-color: rgb(226, 151, 60);
+	box-sizing: border-box; /*INCLUDES THE PADDING AND BORDER INTO THE ELEMENT's TOTAL WIDTH(and height)*/
+	float: right; /*floats main section to the left*/
+	/*padding: 0px; /*removes padding*/
  	width: 80%; /* main(which is our main paragraph ting) can only take up 70% OF ITS CONTAINING ELEMENT. 
- 	NOTE: width should be % NOT px B/C then element can resize*/
- 	padding: 0px; /*removes padding*/
- 	box-sizing: border-box; /*INCLUDES THE PADDING AND BORDER INTO THE ELEMENT's TOTAL WIDTH(and height)*/
- }
+	 NOTE: width should be % NOT px B/C then element can resize*/	
+	 
+	display: flex; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/ 
+	justify-content: center; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/
+	align-items: center; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/
+	
+	
 
+ }
 .art-side .row {
 	padding-top: 30px;
 }
-
 .art-side img {
 	padding: 5px;
-	border-radius: 5px;
 }
-
 .art-side img:hover {
 	opacity: 0.5;
 	transition:opacity 0.3s;
 }
 
 
-/*info-side take up 20% (left) */
+
+  /*info-side take up 20% (left) */
  .info-side {
- 	font-family: Arial, Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
-	font-size: 16px;
 	background-color: white;
- 	color: #000;
+	box-sizing: border-box;
+	color: #000;
+ 	font-family: Arial, Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
  	float: left;
  	width: 20%;
- 	padding: 0;
- 	padding-right: 30px;
- 	box-sizing: border-box;
- }
+ 	/* padding: 0; */
+	 padding-right: 30px; 
+	 
+	 /*display: flex; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/ 
+}
 
 .info-side .main-logo {
 	padding-top: 30px;
