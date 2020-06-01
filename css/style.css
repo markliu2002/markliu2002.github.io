@@ -5,13 +5,14 @@
 
 body {
 	background-color: #000;
-	color: #555; /*sets text colour*/
-	font-family: Arial, Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
+	color: #000; /*sets text colour*/
+	font-family: Arial, Helvetica, sans-serif; 
 	line-height: 1.6em; /*sets line-height(space b/w lines) to 1.6(recommended)*/
 	margin: 0; /*zero out the margins SHOULD ALWAYS DO THIS I THINK*/
-	position: relative;
-	padding-bottom: 100px;
-	min-width: 100vh;
+	
+	position: relative; /*NEED THESE TO KEEP FOOTER AT THE BOTTOM */
+	padding-bottom: 100px; /*NEED THESE TO KEEP FOOTER AT THE BOTTOM */
+	min-width: 100vh; /*NEED THESE TO KEEP FOOTER AT THE BOTTOM */
 }
 
 
@@ -28,24 +29,82 @@ body {
 }
 
 
-/*Everything is in container. We only want it to take up 94% so some white space on either side*/
+/*Everything is in container. We only want it to take up 100% so no white space on either side*/
 .flex-container {
-	/*flex-wrap: wrap; /* items can wrap if necessary. W3 SCHOOLS DID THIS*/
 	display: flex; /*everything is inside this flex-container so set display: flex so things inside like art-side and info-side can have width:300px; and flex-grow:1;*/
 	
 	/*overflow PROPERTY SPECIFIES WHETHER TO CLIP CONTENT(still show content)  O R  ADD SCROLLBARS
 	SCROLLBAR WHEN CONTENT IS TOO BIG FOR SPECIFIED AREA.(scroll, hidden, auto, or visible(default))*/
 	overflow: hidden; /*sets overflow hidden so when content too big NO SCROLLBAR*/ 
-	width: 100%;	/*sets width. Class container CAN ONLY BE 94% OF ITS CONTAINING ELEMENT. NOTE: should use % NOT px B/C then element can resize instead of getting cut off*/
+	width: 100%;	/*sets width. Class container CAN IS 100% OF ITS CONTAINING ELEMENT. NOTE: should use % NOT px B/C then element can resize instead of getting cut off*/	
+}
+
+/*info-side take up 300px, art-side takes up the rest (flex) */
+.info-side {
+	margin-top: 0px;
+	background-color:white;
+	box-sizing: border-box; /*INCLUDES THE PADDING AND BORDER INTO THE ELEMENT's TOTAL WIDTH(and height)*/
+	color: #000;
+ 	font-family: Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
+	width: 300px; /*can use this flex property b/c .flex-container has display set to flex. .info side has a set width of 300px. art-side has a flex-grow:1 so it just grows to fill up all the extra space*/
+	display: flexbox;
+}
+
+.info-side .main-logo {
+	display: block; /*NEED THESE 2 TO CENTER THE IMAGE INSIDE info-side*/
+	margin: 0 auto; /*NEED THESE 2 TO CENTER THE IMAGE INSIDE info-side*/
+	padding-top: 30px; /*top padding matches the top padding of the images on the art-side*/
+}
+
+.info-side p { /*Illustrator, concept artist, and graphic designer currently based in Toronto...*/
+	color: black;
+	word-spacing: 2px;
+	font-size: 26px;
+	font-weight: medium;
+	padding-top: 10px;
+	padding-bottom: 0px;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: left;
+}
+
+.info-side .socials { /*all the links and icons*/
+	display: flex;
+	justify-content: center;
+}
+
+.info-side .socials i:hover { /*hover over icons*/
+	opacity: 0.6;
+	transition: 0.05s;
+}
+
+.info-side a { /*all the links on the info-side have left and right padding*/
+	padding: 0 15px;
+}
+
+.info-side i { /*size of the font awesome icons*/
+	font-size:40px;
+	color:black;
+}
+
+.info-side .location { /*Toronto, ON*/
+	text-align: center;
+	line-height: 0px;
+}
+
+.info-side .contact-me { /*Let's get in touch:*/
+	font-weight: bold;
 }
 
 
 
-/*art side take up 80% (right)*/
+/*info-side take up 300px, art-side takes up the rest (flex) */
 .art-side {
-	background-color: #C8C8C8; 
+	background-color: #C8C8C8; /*light grey*/
 	box-sizing: border-box; /*INCLUDES THE PADDING AND BORDER INTO THE ELEMENT's TOTAL WIDTH(and height)*/
 	flex-grow: 1; /*can use this flex property b/c .flex-container has display set to flex. .info side has a set width of 300px. art-side has a flex-grow:1 so it just grows to fill up all the extra space*/
+
+	flex-wrap: wrap; /*NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW*/
 
 	display: flex; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/ 
 	justify-content: center; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/
@@ -58,103 +117,26 @@ body {
 .row:hover img { /*when you hover over the "row" class (which holds all the thumbnails), all the images turn opaque and scale() RESIZES THE ELEMENTS(imageS) TO 0.98 OF THEIR ORIGINAL. */ 
 	opacity: 0.6;
 	transition:opacity 0.2s;
-	transform: scale(0.98);
+	transform: scale(0.98); 
 }
 .art-side img {
 	padding: 5px;
-	border-radius: 10px;
+	border-radius: 10px; /*Slightly rounded corner*/
 }
 /*Here we are selecting an image when IT ITSELF is hovered over(before we were just selecting all the images when their container("row) was hovered over)*/
 .art-side img:hover { 
-	opacity: 1;
-	transform: scale(1);
+	opacity: 1; /*the current image we on doesn't turn opaque*/
+	transform: scale(1); /*the current image we on doesn't get smaller(^0.98), it stays same size*/
 }
 
 
 
-  /*info-side take up 20% (left) */
-.info-side {
-	margin-top: 0px;
-	background-color: white;
-	box-sizing: border-box; /*INCLUDES THE PADDING AND BORDER INTO THE ELEMENT's TOTAL WIDTH(and height)*/
-	color: #000;
- 	font-family: Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
-	width: 300px; /*can use this flex property b/c .flex-container has display set to flex. .info side has a set width of 300px. art-side has a flex-grow:1 so it just grows to fill up all the extra space*/
-	display: flexbox;
-	/* flex-wrap: wrap; */
-}
 
-.info-side .main-logo {
-	display: block; /*NEED THESE 2 TO CENTER THE IMAGE INSIDE inf-side*/
-	margin: 0 auto; /*NEED THESE 2 TO CENTER THE IMAGE INSIDE inf-side*/
-	padding-top: 30px; /*top padding matches the top padding of the images on the art-side*/
-}
-
-.info-side h3 { /*noxciel999@gmail.com  nextline: Toronto, Ontario*/
-	padding-top: 5px;
-}
-
-.info-side p { /*Illustrator. Concept artist. Graphic designer*/
-	color: black;
-	word-spacing: 2px;
-	font-size: 26px;
-	font-weight: medium;
-	padding-top: 10px;
-	padding-bottom: 0px;
-	padding-left: 30px;
-	padding-right: 30px;
-	text-align: left;
-}
-
-.info-side .socials {
-	display: flex;
-	justify-content: center;
-}
-
-.info-side a {
-	padding: 0 15px;
-}
-
-.info-side i {
-	font-size:40px
-}
-
-.info-side .description { 
-	text-align: center;
-	line-height: 0px;
-}
-
-.info-side ul {
-	width: 100%;
-  margin: auto;
-	/* list-style: none; */
-}
-
-.info-side li {
-	margin: 0 0 20px 0;
-	padding-left: 20px; 
-}
-
-.info-side i {
-	color:black;
-}
-
-.info-side a{
-	letter-spacing: 2px;
-	color: black;
-	text-decoration: none; 
-	font-weight: bold;
-}
-
-.info-side .contact-me {
-	font-weight: bold;
-	
-}
-
-.main-footer {
+.main-footer { /*Noxciel footer*/
 	font-family: Helvetica, sans-serif;
 	font-weight: bold;
 	letter-spacing: 3px;
+	
 	position: absolute;
 	bottom: 0;
 	padding: 20px 20px;
@@ -170,71 +152,343 @@ body {
 
 
 
-/*EVERYTHING GRADUALLY GET SMALLER AS SCREEN GETS SMALLER*/
+
+
+
+
+
+
+/*MEDIA QUERIES*/
+
+
+
 @media screen and (max-width: 1000px) {
+	.body {
+		width: 1000px; 
+		overflow-x: hidden;
+	}
 	.main-header {
-		height: 80px;
-		width: 1000;
+		box-sizing: border-box;
+		width: 1000px; 
 	}
-}
-
-@media screen and (max-width: 900px) {
-	.main-header {
-		height: 70px;
-		width: 900px;
-	}
-}
-
-@media screen and (max-width: 800px) {
-	.main-header {
-		height: 60px;
-		width: 800px;
-	}
-}
-
-
-@media screen and (max-width: 700px) {
-	.main-header {
-		height: 60px;
-		width: 700px;
-	}
-}
-
-
-
-
-@media screen and (max-width: 600px) {
-	.info-side { 
-		width: 600px; /* SETS info-side TO TAKE UP 100% OF ITS CONTAINER(flex-container) << do this b/c width IS ORIGINALLY FIXED AT 300px  !!! */
-	} 
-	.main-header {
-		height: 50px;
-		width: 600px;
-	}
-	.main-footer {
-		width: 600px;
-	}
-}
-
-
-
-
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 500px) {
-  .flex-container {   /* CHANGES EVERYTHING INSIDE flex-container(info-side AND art-side)*/
-		flex-direction: column; /* flex-direction: column SETS THE FLEXBOX ITEMS(info-side AND art-side) TO BE ORDERED LIKE A COLUMN (default IS ROW) !!! */
-		width: 100%;
+	.flex-container { 
+		box-sizing: border-box;
+	 flex-direction: column;
+	 background-color:white;
+	 justify-content: center;
+	 width: 1000px; 
 	}
 	.info-side { 
-		width: 500px; /* SETS info-side TO TAKE UP 100% OF ITS CONTAINER(flex-container) << do this b/c width IS ORIGINALLY FIXED AT 300px  !!! */
+		box-sizing: border-box;
+		align-content: center;
+		text-align: center;
+		background-color: white;
+		height: 350px;
+		width: 1000px; 
 	} 
+	.description {
+		display: none;
+	}
+	.contact-me {
+		display: none;
+	}
 	.art-side {
-		width: 500px;
+		box-sizing: border-box;
+		background-color:white;
+		flex-direction: column;
+		width: 1000px;  
 	}
-	.main-header {
-		width: 500px;
+	.row1 { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
+		display: flex;
+		flex-direction: column;
+	}
+	.row2 {
+		display: flex;
+		flex-direction: column;
+	}
+	.row3 {
+		display: flex;
+		flex-direction: column;
+	}
+	.row4 {
+		display: flex;
+		flex-direction: column;
 	}
 	.main-footer {
-		width: 500px;
+		box-sizing: border-box;
+		width: 1000px; 
 	}
 }
+
+
+
+
+
+
+
+
+
+
+/*800px FOR IPADS*/
+@media screen and (max-width: 800px) {
+	.body {
+		width: 800px; 
+		overflow-x: hidden;
+	}
+	.main-header {
+		box-sizing: border-box;
+		width: 800px; 
+	}
+	.flex-container { 
+		box-sizing: border-box;
+	 flex-direction: column;
+	 background-color:white;
+	 justify-content: center;
+	 width: 800px; 
+	}
+	.info-side { 
+		box-sizing: border-box;
+		align-content: center;
+		text-align: center;
+		background-color: white;
+		height: 350px;
+		width: 800px; 
+	} 
+	.description {
+		display: none;
+	}
+	.contact-me {
+		display: none;
+	}
+	.art-side {
+		box-sizing: border-box;
+		background-color:white;
+		flex-direction: column;
+		width: 800px; 
+	}
+	.row1 { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
+		display: flex;
+		flex-direction: column;
+	}
+	.row2 {
+		display: flex;
+		flex-direction: column;
+	}
+	.row3 {
+		display: flex;
+		flex-direction: column;
+	}
+	.row4 {
+		display: flex;
+		flex-direction: column;
+	}
+	.main-footer {
+		box-sizing: border-box;
+		width: 800px; 
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/* 600 PIXELS WHEN THINGS NEED TO START SHIFTING */
+@media screen and (max-width: 600px) {
+	.body {
+		width: 600px; 
+		overflow-x: hidden;
+	}
+	.main-header {
+		box-sizing: border-box;
+		width: 600px; 
+	}
+	.flex-container { 
+		box-sizing: border-box;
+	 flex-direction: column;
+	 background-color:white;
+	 justify-content: center;
+	 width: 600px; 
+	}
+	.info-side { 
+		box-sizing: border-box;
+		align-content: center;
+		text-align: center;
+		background-color: white;
+		height: 350px;
+		width: 600px; 
+	} 
+	.description {
+		display: none;
+	}
+	.contact-me {
+		display: none;
+	}
+	.art-side {
+		box-sizing: border-box;
+		background-color:white;
+		flex-direction: column;
+		width: 600px; 
+	}
+	.row1 { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
+		display: flex;
+		flex-direction: column;
+	}
+	.row2 {
+		display: flex;
+		flex-direction: column;
+	}
+	.row3 {
+		display: flex;
+		flex-direction: column;
+	}
+	.row4 {
+		display: flex;
+		flex-direction: column;
+	}
+	.main-footer {
+		box-sizing: border-box;
+		width: 600px; 
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/*PHONES*/
+@media screen and (max-width: 400px) {
+	.body {
+		width: 400px
+		/* overflow-x: hidden; */
+	}
+	.main-header {
+		box-sizing: border-box;
+		width: 400px; 
+	}
+	.flex-container { 
+		box-sizing: border-box;
+	 flex-direction: column;
+	 background-color: white;
+	 justify-content: center;
+	 width: 400px; 
+	}
+	.info-side { 
+		box-sizing: border-box;
+		align-content: center;
+		text-align: center;
+		background-color: white;
+		height: 350px;
+		width: 400px;
+	} 
+	.description {
+		display: none;
+	}
+	.contact-me {
+		display: none;
+	}
+	.art-side {
+		box-sizing: border-box;
+		background-color: white;
+		flex-direction: column;
+		width: 400px; 
+	}
+	.row1 { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
+		display: flex;
+		flex-direction: column;
+	}
+	.row2 {
+		display: flex;
+		flex-direction: column;
+	}
+	.row3 {
+		display: flex;
+		flex-direction: column;
+	}
+	.row4 {
+		display: flex;
+		flex-direction: column;
+	}
+	.main-footer {
+		box-sizing: border-box;
+		width: 400px; 
+	}
+}
+
+
+
+
+
+
+
+
+
+
+/*SMALLER PHONES LIKE IPHONE 5*/
+@media screen and (max-width: 350px) {
+	.body {
+		width: 350px
+		/* overflow-x: hidden; */
+	}
+	.main-header {
+		box-sizing: border-box;
+		width: 350px; 
+	}
+	.flex-container { 
+		box-sizing: border-box;
+	 flex-direction: column;
+	 background-color: white;
+	 justify-content: center;
+	 width: 350px; 
+	}
+	.info-side { 
+		box-sizing: border-box;
+		align-content: center;
+		text-align: center;
+		background-color: white;
+		height: 350px;
+		width: 350px; 
+	} 
+	.description {
+		display: none;
+	}
+	.contact-me {
+		display: none;
+	}
+	.art-side {
+		box-sizing: border-box;
+		background-color: white;
+		flex-direction: column;
+		width: 350px;  
+	}
+	.row1 { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
+		display: flex;
+		flex-direction: column;
+	}
+	.row2 {
+		display: flex;
+		flex-direction: column;
+	}
+	.row3 {
+		display: flex;
+		flex-direction: column;
+	}
+	.row4 {
+		display: flex;
+		flex-direction: column;
+	}
+	.main-footer {
+		box-sizing: border-box;
+		width: 350px;  
+	}
+}
+
