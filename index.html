@@ -3,10 +3,16 @@
 <head>
 	<title>Noxciel</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/lightbox.css">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> To use the Font Awesome icons, need to add this inside the <head> section. NO DOWNLOADING NEEDED-->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!--have to make sure jquery is loaded before lightbox.js-->
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/lightbox.js"></script>
 </head>
 
 
-<body>
+<body class="body">
 
 	<header class="main-header">
 		<!--CREATES div WITH CLASS b/c GOING TO REUSE IN A LOT OF PLACES-->
@@ -15,196 +21,92 @@
 	</header>
 
 
-	<div class="container" >
+	<div class="flex-container" > <!--BASICALLY EVERYTHING IS INSIDE THIS CONTAINER, MAKE IT DISPLAY: FLEX TO MAKE IT A FLEXIBLE GRID AND THEN THINGS INSIDE CAN HAVE FLEX PROPERTIES LIKE flex: 70% AND flex:30%-->
 
 		<div class="info-side">
 
 			<!--main logo-->
 			<img class="main-logo" src='images/noxciellogo.jpg' width="200" height="200">
 
-			<div id="description">
-				<h1>Isaac Liu</h1>
-				<h3>noxciel999@gmail.com</h3>
-				<h4>Toronto, Ontario</h4>
+			<div class="description">
+				<h1>Toronto, ON</h1>
 			</div>
-			<p>Illustrator. Concept artist. Graphic disigner.</p>
 
+			<p>Illustrator, concept artist, and graphic designer currently based in Toronto. If you need any work done, I'm available.</p>
+			<p>Let's get in touch:</p>
+
+			<div class="socials">
+				<a href="https://www.instagram.com/noxciel999/?hl=af" target="_blank">
+					<i class="fab fa-instagram-square"></i> <!--<i> and <span> elements are widely used for icons. NEED TO USE THE PREFIX fa AND ICON's NAME-->
+				</a>
+
+				<a href="https://twitter.com/NOXCIEL999" target="_blank">
+					<i class="fab fa-twitter-square"></i> <!--<i> and <span> elements are widely used for icons. NEED TO USE THE PREFIX fa AND ICON's NAME-->
+				</a>
+
+				<a href="https://www.artstation.com/noxciel" target="_blank">
+					<i class="fab fa-artstation"></i> <!--<i> and <span> elements are widely used for icons. NEED TO USE THE PREFIX fa AND ICON's NAME-->
+				</a>
+
+				<a href="mailto:noxciel999@email.com" target="_blank">
+					<i class="fas fa-envelope-square"></i> <!--<i> and <span> elements are widely used for icons. NEED TO USE THE PREFIX fa AND ICON's NAME-->
+				</a>
+			</div>
 
 			<!--socials-->
-			<ul class="socials-list">
-
-				<li>
-					<a class="pic" href="https://www.instagram.com/noxciel999/?hl=af" target="_blank"><img src='images/insta.jpg' width="50" height="50">  @Noxciel999</a>	
-				</li>
-
-
-				<li>
-					<a class="pic" href="https://twitter.com/NOXCIEL999" target="_blank"><img src='images/twitter.jpg' width="50" height="50">  @Noxciel999</a>
-				</li>
-
-
-				<li>
-					<a class="pic" href="https://www.artstation.com/noxciel" target="_blank"><img src='images/artstation.jpg' width="50" height="50">  @Noxciel999</a>
-				</li>
-
-
-			</ul>
-
-
 		</div> <!--info side ends here-->
 
 
 		<!--ART SIDE-->
 		<div class="art-side">
 
-			<!--DISPLAYS ALL IMAGES-->
+			<!--DISPLAYS ALL IMAGES IN ROWS OF 3-->
 			<div class="row">
 
 				<div> <!--Row 1-->
 					<div>
-					<img id="modalBtn1" src='images/pic1.jpg' width="460" height="460">
-					<img id="modalBtn2" src='images/pic2.jpg' width="460" height="460">
-					<img id="modalBtn3" src='images/pic3.jpg' width="460" height="460">
+					<a href="images/edifice.jpg" data-lightbox="gallery" data-title="EDIFICE"><img src='images/edifice_thumb.jpg' width="350" height="350"></a> <!--SHOULD HAVE SEPERATE THUMBNAIL AND FULL RES PICTURES. THE LINK IS THE FULL RES PICTURE. THUMBNAIL WOULD REMOVE THE NEED TO HAVE WIDTH AND HEIGHT-->
+					<a href="images/helmet.jpg" data-lightbox="gallery" data-title="SHADOW OPS WARLOCK HELMET"><img src='images/helmet_thumb.jpg' width="350" height="350"></a>
+					<a href="images/wormhusk.jpg" data-lightbox="gallery" data-title="WORMHUSK CROWN"><img src='images/wormhusk_thumb.jpg' width="350" height="350"></a>
+					<a href="images/chrome.jpg" data-lightbox="gallery" data-title="CHROME"><img src='images/chrome_thumb.jpg' width="350" height="350"></a>
 				</div>
 
 
 				<div> <!--Row 2-->
-					<img id="modalBtn4"src='images/pic4.jpg' width="460" height="460">
-					<img id="modalBtn5"src='images/pic5.jpg' width="460" height="460">
-					<img id="modalBtn6"src='images/pic6.jpg' width="460" height="460">
+					<a href="images/cut.jpg" data-lightbox="gallery" data-title="CUT"><img src='images/cut_thumb.jpg' width="350" height="350"></a>
+					<a href="images/stormtower.jpg" data-lightbox="gallery" data-title="PRISON"><img src='images/stormtower_thumb.jpg' width="350" height="350"></a>
+					<a href="images/shuffle.jpg" data-lightbox="gallery" data-title="SHUFFLE"><img src='images/shuffle_thumb.jpg' width="350" height="350"></a>
+					<a href="images/radio_people.jpg" data-lightbox="gallery" data-title="RADIO PEOPLE"><img src='images/radio_people_thumb.jpg' width="350" height="350"></a>
 				</div>
 
 
 				<div> <!--Row 3-->
-					<img id="modalBtn7"src='images/pic7.jpg' width="460" height="460">
-					<img id="modalBtn8"src='images/pic8.jpg' width="460" height="460">
-					<img id="modalBtn9"src='images/pic9.jpg' width="460" height="460">
+					<a href="images/butt.jpg" data-lightbox="gallery" data-title="BACK FIGURE"><img src='images/butt_thumb.jpg' width="350" height="350"></a>
+					<a href="images/octo.jpg" data-lightbox="gallery" data-title="OCTOSKULL"><img src='images/octo_thumb.jpg' width="350" height="350"></a>
+					<a href="images/amaterasu.jpg" data-lightbox="gallery" data-title="AMATERASU"><img src='images/amaterasu_thumb.jpg' width="350" height="350"></a>
+					<a href="images/googlemoon.jpg" data-lightbox="gallery" data-title="FIRST STEP ON THE MOON"><img src='images/googlemoon_thumb.jpg' width="350" height="350"></a>
+				</div>
+
+
+				<div> <!--Row 4-->
+					<a href="images/chopsticks.jpg" data-lightbox="gallery" data-title="CHOPSTICKS"><img src='images/chopsticks_thumb.jpg' width="350" height="350"></a>
+					<a href="images/cottage.jpg" data-lightbox="gallery" data-title="COTTAGE"><img src='images/cottage_thumb.jpg' width="350" height="350"></a>
+					<a href="images/sadboi.jpg" data-lightbox="gallery" data-title="sad.boi.sushi"><img src='images/sadboi_thumb.jpg' width="350" height="350"></a>
+					<a href="images/redhood.jpg" data-lightbox="gallery" data-title="REDHOOD"><img src='images/redhood_thumb.jpg' width="350" height="350"></a>
 				</div>
 
 			</div> <!-- row ends here-->
 		</div> <!-- art-side ends here-->
-	
 	</div> <!--Where container ends-->
 
 
 
+	<footer class="main-footer">
+		<p>&copy; <script> document.write(new Date().getFullYear()); </script> Noxciel</p> <!--JAVASCRIPT TO GET THE CURRENT YEAR-->
+	</footer>
 
-
-	<!--pop up modal-->
-	<!--CLASS MODAL IS THE WHOLE POP UP INCLUDING THE DARK BACKGROUND-->
-	<div id="simpleModal1" class="modal1"> <!--PIC ONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE-->
-
-		<!--MODAL CONTENT IS THE ACTUAL PICTURE WE WANT TO POP UP-->
-		<div class="modal-content1">
-			<span class="closeBtn1">&times;</span>
-			<img src='images/pic1.jpg' width="1000" height="1000">
-		</div>
-	</div>
-
-
-
-	<div id="simpleModal2" class="modal2"> <!--PIC TWOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-->
-
-		<!--MODAL CONTENT IS THE ACTUAL PICTURE WE WANT TO POP UP-->
-		<div class="modal-content2">
-			<span class="closeBtn2">&times;</span>
-			<img src='images/pic2.jpg' width="1000" height="1000">
-		</div>
-	</div>
 	
 
-
-
-	<div id="simpleModal3" class="modal3"> <!--PIC THREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE-->
-
-		<!--MODAL CONTENT IS THE ACTUAL PICTURE WE WANT TO POP UP-->
-		<div class="modal-content3">
-			<span class="closeBtn3">&times;</span>
-			<img src='images/pic3.jpg' width="1000" height="1000">
-		</div>
-	</div>
-
-
-
-
-	<div id="simpleModal4" class="modal4"> <!--PIC FOURRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR-->
-
-		<!--MODAL CONTENT IS THE ACTUAL PICTURE WE WANT TO POP UP-->
-		<div class="modal-content4">
-			<span class="closeBtn4">&times;</span>
-			<img src='images/pic4.jpg' width="1000" height="1000">
-		</div>
-	</div>
-
-
-
-
-	<div id="simpleModal5" class="modal5"> <!--PIC FIVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE-->
-
-		<!--MODAL CONTENT IS THE ACTUAL PICTURE WE WANT TO POP UP-->
-		<div class="modal-content5">
-			<span class="closeBtn5">&times;</span>
-			<img src='images/pic5.jpg' width="1000" height="1000">
-		</div>
-	</div>
-
-
-
-
-	<div id="simpleModal6" class="modal6"> <!--PIC SIXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
-
-		<!--MODAL CONTENT IS THE ACTUAL PICTURE WE WANT TO POP UP-->
-		<div class="modal-content6">
-			<span class="closeBtn6">&times;</span>
-			<img src='images/pic6.jpg' width="1000" height="1000">
-		</div>
-	</div>
-
-
-
-
-	<div id="simpleModal7" class="modal7"> <!--PIC SEVENNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-->
-
-		<!--MODAL CONTENT IS THE ACTUAL PICTURE WE WANT TO POP UP-->
-		<div class="modal-content7">
-			<span class="closeBtn7">&times;</span>
-			<img src='images/pic7.jpg' width="1000" height="1000">
-		</div>
-	</div>
-
-
-
-
-	<div id="simpleModal8" class="modal8"> <!--PIC EIGHTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT-->
-
-		<!--MODAL CONTENT IS THE ACTUAL PICTURE WE WANT TO POP UP-->
-		<div class="modal-content8">
-			<span class="closeBtn8">&times;</span>
-			<img src='images/pic8.jpg' width="1000" height="1000">
-		</div>
-	</div>
-
-
-
-
-	<div id="simpleModal9" class="modal9"> <!--PIC NINEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE-->
-
-		<!--MODAL CONTENT IS THE ACTUAL PICTURE WE WANT TO POP UP-->
-		<div class="modal-content9">
-			<span class="closeBtn9">&times;</span>
-			<img src='images/pic9.jpg' width="1000" height="1000">
-		</div>
-	</div>
-
-
-
-
-
-
-
-
-
-
-	<script src="main.js"></script> <!--LINKS THE JS FILE WE USING(put at end b/c we want css and html to load first)-->
+	<script src="js/main.js"></script> <!--LINKS THE JS FILE WE USING(put at end b/c we want css and html to load first)-->
 </body>
 </html>

@@ -1,183 +1,163 @@
 *{
 	padding: 0px;
+	/*box-sizing: border-box; /*w# SCHOOLS DID THIS, HOWEVER, it made the images not perfectly centered!!!!!!!!!!!!!!!!!!!!!*/
 }
 
 body {
-	/*background-color: #f4f4f4;*/
-	background-color: aquamarine;
+	background-color: #000;
 	color: #555; /*sets text colour*/
 	font-family: Arial, Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
 	line-height: 1.6em; /*sets line-height(space b/w lines) to 1.6(recommended)*/
-	margin: 0; /*zero out the margins*/
+	margin: 0; /*zero out the margins SHOULD ALWAYS DO THIS I THINK*/
+	position: relative;
+	padding-bottom: 100px;
+	min-width: 100vh;
 }
-
 
 
 /*Header that says N O X C I E L*/
 .main-header {
+	background-color: #000;
 	background-image: url('../images/noxciel-banner.jpg'); /*sets background colour*/
+	background-repeat: no-repeat;
+
 	background-size: 100%;       /* NEED THESE*/
 	background-position: center; /*NEED THESE, always centers the image*/
+	padding: 20px; /*Makes header a little bigger by padding 30px black all around (noxciel image already black so blends together)*/
 	height: 190px;
 }
 
 
-
 /*Everything is in container. We only want it to take up 94% so some white space on either side*/
-.container {
-	width: 94%;	/*sets width. Class container CAN ONLY BE 80% OF ITS CONTAINING ELEMENT. NOTE: should use % NOT px B/C then element can resize instead of getting cut off*/
-	margin: auto; /*margin: auto MEANS THE LEFT/RIGHT MARGINS ARE AUTOMATICALLY SET BASED ON THE CONTAINER(& width u set)*/
+.flex-container {
+	/*flex-wrap: wrap; /* items can wrap if necessary. W3 SCHOOLS DID THIS*/
+	display: flex; /*everything is inside this flex-container so set display: flex so things inside like art-side and info-side can have width:300px; and flex-grow:1;*/
+	
 	/*overflow PROPERTY SPECIFIES WHETHER TO CLIP CONTENT(still show content)  O R  ADD SCROLLBARS
 	SCROLLBAR WHEN CONTENT IS TOO BIG FOR SPECIFIED AREA.(scroll, hidden, auto, or visible(default))*/
 	overflow: hidden; /*sets overflow hidden so when content too big NO SCROLLBAR*/ 
+	width: 100%;	/*sets width. Class container CAN ONLY BE 94% OF ITS CONTAINING ELEMENT. NOTE: should use % NOT px B/C then element can resize instead of getting cut off*/
 }
 
 
 
 /*art side take up 80% (right)*/
 .art-side {
-	/*background-color: #f4f4f4;*/
-	background-color: rgb(226, 151, 60);
+	background-color: #C8C8C8; 
 	box-sizing: border-box; /*INCLUDES THE PADDING AND BORDER INTO THE ELEMENT's TOTAL WIDTH(and height)*/
-	float: right; /*floats main section to the left*/
-	/*padding: 0px; /*removes padding*/
- 	width: 80%; /* main(which is our main paragraph ting) can only take up 70% OF ITS CONTAINING ELEMENT. 
-	 NOTE: width should be % NOT px B/C then element can resize*/	
-	 
+	flex-grow: 1; /*can use this flex property b/c .flex-container has display set to flex. .info side has a set width of 300px. art-side has a flex-grow:1 so it just grows to fill up all the extra space*/
+
 	display: flex; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/ 
 	justify-content: center; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/
 	align-items: center; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/
-	
-	
-
- }
+}
 .art-side .row {
 	padding-top: 30px;
 }
+/*Here we are selecting all the images on the art-side ONLY WHEN the "row" class is hovered over*/
+.row:hover img { /*when you hover over the "row" class (which holds all the thumbnails), all the images turn opaque and scale() RESIZES THE ELEMENTS(imageS) TO 0.98 OF THEIR ORIGINAL. */ 
+	opacity: 0.6;
+	transition:opacity 0.2s;
+	transform: scale(0.98);
+}
 .art-side img {
 	padding: 5px;
+	border-radius: 10px;
 }
-.art-side img:hover {
-	opacity: 0.5;
-	transition:opacity 0.3s;
+/*Here we are selecting an image when IT ITSELF is hovered over(before we were just selecting all the images when their container("row) was hovered over)*/
+.art-side img:hover { 
+	opacity: 1;
+	transform: scale(1);
 }
 
 
 
   /*info-side take up 20% (left) */
- .info-side {
+.info-side {
+	margin-top: 0px;
 	background-color: white;
-	box-sizing: border-box;
+	box-sizing: border-box; /*INCLUDES THE PADDING AND BORDER INTO THE ELEMENT's TOTAL WIDTH(and height)*/
 	color: #000;
- 	font-family: Arial, Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
- 	float: left;
- 	width: 20%;
- 	/* padding: 0; */
-	 padding-right: 30px; 
-	 
-	 /*display: flex; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/ 
+ 	font-family: Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
+	width: 300px; /*can use this flex property b/c .flex-container has display set to flex. .info side has a set width of 300px. art-side has a flex-grow:1 so it just grows to fill up all the extra space*/
+	display: flexbox;
+	/* flex-wrap: wrap; */
 }
 
 .info-side .main-logo {
-	padding-top: 30px;
-	border: none;
-	display: block;
-	margin: 0 auto;
+	display: block; /*NEED THESE 2 TO CENTER THE IMAGE INSIDE inf-side*/
+	margin: 0 auto; /*NEED THESE 2 TO CENTER THE IMAGE INSIDE inf-side*/
+	padding-top: 30px; /*top padding matches the top padding of the images on the art-side*/
 }
 
-.info-side h3 {
-	padding-top: 10px;
-}
-
-.info-side p {
-	color: #383838;
+.info-side h3 { /*noxciel999@gmail.com  nextline: Toronto, Ontario*/
 	padding-top: 5px;
-	padding-bottom: 10px;
-	text-align: center;
-	font-weight: bold;
 }
 
-.info-side .pic:hover {
-	opacity: 0.5;
-	transition:opacity 0.3s;
+.info-side p { /*Illustrator. Concept artist. Graphic designer*/
+	color: black;
+	word-spacing: 2px;
+	font-size: 26px;
+	font-weight: medium;
+	padding-top: 10px;
+	padding-bottom: 0px;
+	padding-left: 30px;
+	padding-right: 30px;
+	text-align: left;
 }
 
-.info-side #description {
+.info-side .socials {
+	display: flex;
+	justify-content: center;
+}
+
+.info-side a {
+	padding: 0 15px;
+}
+
+.info-side i {
+	font-size:40px
+}
+
+.info-side .description { 
 	text-align: center;
-	line-height: 5px;
+	line-height: 0px;
 }
 
 .info-side ul {
 	width: 100%;
-    margin: auto;
-	padding-left: 0px;
-	list-style: none;
+  margin: auto;
+	/* list-style: none; */
 }
 
 .info-side li {
-	margin: 0 0 30px 0;
-	padding-left: 40px; 
+	margin: 0 0 20px 0;
+	padding-left: 20px; 
+}
+
+.info-side i {
+	color:black;
 }
 
 .info-side a{
 	letter-spacing: 2px;
 	color: black;
-	text-decoration: none;
+	text-decoration: none; 
 	font-weight: bold;
 }
 
-
-
-
-
-
-/*modal is the entire pop up, including THE DARK BACKGROUND and x button and everything*/
-/*PIC ONEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
-.modal1 { 
-	display: none; /*HIDES POP UP INITIALLY*/
-	position: fixed;
-	z-index: 1; /*z-index is the ORDER OF ELEMENTS, the higher the index, the more up-front its gonna be*/
-	left: 0; /*start left and top*/
-	top: 0;
-	width: 100%; /*WANT POP UP TO TAKE UP THE WHOLE WINDOW*/
-	height: 100%;
-	overflow: auto; /*WILL ENABLE SCROLLBAR IF NEEDED*/
-	background-color: rgba(0,0,0,0.5);  /*DARK BACKGROUND. rgba adds colour but ALSO OPACITY(last parameter)*/
-}
-
-/*THIS IS THE CONTENT(THE PICTURE AND x button)*/
-.modal-content1 {
-	background-color: white;
-	margin: 5% auto; /*20% down FROM THE TOP OF SCREEN, left and right are auto so centered*/
-	padding: 10px;
-	width: 60%;
-	/*box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 2);	no box shadow*/
-}
-
-/*CLOSE BUTTON*/
-.closeBtn1 {
-	color: darkgrey; /*LIGHT GREY*/
-	float: right; /*FLOAT RIGHT TOP*/
-	font-size: 50px; /*BIGGER BUTTON*/
-}
-
-/*WHEN BUTTON HOVERED OVER*/
-.closeBtn1:hover{
-	color: #000; /*BLACK*/
-	text-decoration: none; /*NO UNDERLINE*/
-	cursor: pointer; /*USER's CURSOR TURNS TO A POINTER WHEN HOVERED OVER*/
-}
-
-/*WHEN BUTTON HOVERED OVER*/
-.closeBtn1:focus{ 
-	color: #000; /*BLACK*/
-	text-decoration: none; /*NO UNDERLINE*/
-	cursor: pointer; /*USER's CURSOR TURNS TO A POINTER WHEN HOVERED OVERRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR*/
-}
-
-/*PADDING LEFT B/C OF THAT WEIRD BLANK CHUNK ON THE RIGHT OF IMAGE*/
-.modal-content1 img {
-	padding-left: 60px;
+.main-footer {
+	font-family: Helvetica, sans-serif;
+	font-weight: bold;
+	letter-spacing: 3px;
+	position: absolute;
+	bottom: 0;
+	padding: 20px 20px;
+  width: 100%;
+  background-color: #000;
+	color: white;
+	text-align: center;
+	box-sizing: border-box; 
 }
 
 
@@ -185,344 +165,71 @@ body {
 
 
 
-.modal2 { /*PIC TWOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO*/
-	display: none; /*HIDES POP UP INITIALLY*/
-	position: fixed;
-	z-index: 1; /*z-index is the ORDER OF ELEMENTS, the higher the index, the more up-front its gonna be*/
-	left: 0; /*start left and top*/
-	top: 0;
-	width: 100%; /*WANT POP UP TO TAKE UP THE WHOLE WINDOW*/
-	height: 100%;
-	overflow: auto; /*WILL ENABLE SCROLLBAR IF NEEDED*/
-	background-color: rgba(0,0,0,0.5);  /*DARK BACKGROUND. rgba adds colour but ALSO OPACITY(last parameter)*/
-}
-.modal-content2 {
-	background-color: white;
-	margin: 5% auto;
-	padding: 10px;
-	width: 60%;
-}
-.closeBtn2 {
-	color: darkgrey; 
-	float: right; 
-	font-size: 50px; 
-}
-.closeBtn2:hover{
-	color: #000; 
-	text-decoration: none; 
-	cursor: pointer; 
-}
-.closeBtn2:focus{ 
-	color: #000; 
-	text-decoration: none;
-	cursor: pointer; 
-}
-.modal-content2 img {
-	padding-left: 60px;
-}
-
-
-
-
-
-.modal3 { /*PIC THREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
-	display: none; 
-	position: fixed;
-	z-index: 1; 
-	left: 0; 
-	top: 0;
-	width: 100%; 
-	height: 100%;
-	overflow: auto; 
-	background-color: rgba(0,0,0,0.5);  
-}
-.modal-content3 {
-	background-color: white;
-	margin: 5% auto;
-	padding: 10px;
-	width: 60%;
-}
-.closeBtn3 {
-	color: darkgrey; 
-	float: right; 
-	font-size: 50px; 
-}
-.closeBtn3:hover{
-	color: #000; 
-	text-decoration: none; 
-	cursor: pointer; 
-}
-.closeBtn3:focus{ 
-	color: #000; 
-	text-decoration: none;
-	cursor: pointer; 
-}
-.modal-content3 img {
-	padding-left: 60px;
-}
-
-
-
-
-.modal4 { /*PIC FOURRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR*/
-	display: none; 
-	position: fixed;
-	z-index: 1; 
-	left: 0; 
-	top: 0;
-	width: 100%; 
-	height: 100%;
-	overflow: auto; 
-	background-color: rgba(0,0,0,0.5);  
-}
-.modal-content4 {
-	background-color: white;
-	margin: 5% auto;
-	padding: 10px;
-	width: 60%;
-}
-.closeBtn4 {
-	color: darkgrey; 
-	float: right; 
-	font-size: 50px; 
-}
-.closeBtn4:hover{
-	color: #000; 
-	text-decoration: none; 
-	cursor: pointer; 
-}
-.closeBtn4:focus{ 
-	color: #000; 
-	text-decoration: none;
-	cursor: pointer; 
-}
-.modal-content4 img {
-	padding-left: 60px;
-}
-
-
-
-
-.modal5 { /*PIC FIVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
-	display: none; 
-	position: fixed;
-	z-index: 1; 
-	left: 0; 
-	top: 0;
-	width: 100%; 
-	height: 100%;
-	overflow: auto; 
-	background-color: rgba(0,0,0,0.5);  
-}
-.modal-content5 {
-	background-color: white;
-	margin: 5% auto;
-	padding: 10px;
-	width: 60%;
-}
-.closeBtn5 {
-	color: darkgrey; 
-	float: right; 
-	font-size: 50px; 
-}
-.closeBtn5:hover{
-	color: #000; 
-	text-decoration: none; 
-	cursor: pointer; 
-}
-.closeBtn5:focus{ 
-	color: #000; 
-	text-decoration: none;
-	cursor: pointer; 
-}
-.modal-content5 img {
-	padding-left: 60px;
-}
-
-
-
-
-.modal6 { /*PIC SIXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX*/
-	display: none; 
-	position: fixed;
-	z-index: 1; 
-	left: 0; 
-	top: 0;
-	width: 100%; 
-	height: 100%;
-	overflow: auto; 
-	background-color: rgba(0,0,0,0.5);  
-}
-.modal-content6 {
-	background-color: white;
-	margin: 5% auto;
-	padding: 10px;
-	width: 60%;
-}
-.closeBtn6 {
-	color: darkgrey; 
-	float: right; 
-	font-size: 50px; 
-}
-.closeBtn6:hover{
-	color: #000; 
-	text-decoration: none; 
-	cursor: pointer; 
-}
-.closeBtn6:focus{ 
-	color: #000; 
-	text-decoration: none;
-	cursor: pointer; 
-}
-.modal-content6 img {
-	padding-left: 60px;
-}
-
-
-
-
-.modal7 { /*PIC SEVENNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN*/
-	display: none; 
-	position: fixed;
-	z-index: 1; 
-	left: 0; 
-	top: 0;
-	width: 100%; 
-	height: 100%;
-	overflow: auto; 
-	background-color: rgba(0,0,0,0.5);  
-}
-.modal-content7 {
-	background-color: white;
-	margin: 5% auto;
-	padding: 10px;
-	width: 60%;
-}
-.closeBtn7 {
-	color: darkgrey; 
-	float: right; 
-	font-size: 50px; 
-}
-.closeBtn7:hover{
-	color: #000; 
-	text-decoration: none; 
-	cursor: pointer; 
-}
-.closeBtn7:focus{ 
-	color: #000; 
-	text-decoration: none;
-	cursor: pointer; 
-}
-.modal-content7 img {
-	padding-left: 60px;
-}
-
-
-
-
-.modal8 { /*PIC EIGHTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT*/
-	display: none; 
-	position: fixed;
-	z-index: 1; 
-	left: 0; 
-	top: 0;
-	width: 100%; 
-	height: 100%;
-	overflow: auto; 
-	background-color: rgba(0,0,0,0.5);  
-}
-.modal-content8 {
-	background-color: white;
-	margin: 5% auto;
-	padding: 10px;
-	width: 60%;
-}
-.closeBtn8 {
-	color: darkgrey; 
-	float: right; 
-	font-size: 50px; 
-}
-.closeBtn8:hover{
-	color: #000; 
-	text-decoration: none; 
-	cursor: pointer; 
-}
-.closeBtn8:focus{ 
-	color: #000; 
-	text-decoration: none;
-	cursor: pointer; 
-}
-.modal-content8 img {
-	padding-left: 60px;
-}
-
-
-
-
-.modal9 { /*PIC NINEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE*/
-	display: none; 
-	position: fixed;
-	z-index: 1; 
-	left: 0; 
-	top: 0;
-	width: 100%; 
-	height: 100%;
-	overflow: auto; 
-	background-color: rgba(0,0,0,0.5);  
-}
-.modal-content9 {
-	background-color: white;
-	margin: 5% auto;
-	padding: 10px;
-	width: 60%;
-}
-.closeBtn9 {
-	color: darkgrey; 
-	float: right; 
-	font-size: 50px; 
-}
-.closeBtn9:hover{
-	color: #000; 
-	text-decoration: none; 
-	cursor: pointer; 
-}
-.closeBtn9:focus{ 
-	color: #000; 
-	text-decoration: none;
-	cursor: pointer; 
-}
-.modal-content9 img {
-	padding-left: 60px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media(max-width: 700px) {
-/*ANYTHING INSIDE HERE WILL ONLY BE IN EFFECT IF THE BROWSER WINDOW IS 600px OR SMALLER*/	
-/*we want to remove the float from main section paragraph thing and 
-sidebar so they're not squished together but instead ON TOP OF EACH OTHER*/
-
-	/*SELECTS THE ELEMENT with ID main*/
-	.info-side {
-		width: 100%; /*sets width to 100% OF ITS CONTAINING ELEMENT. use % so can resize*/
-		float: none; /*deletes float*/
+/*EVERYTHING GRADUALLY GET SMALLER AS SCREEN GETS SMALLER*/
+@media screen and (max-width: 1000px) {
+	.main-header {
+		height: 80px;
+		width: 1000;
 	}
+}
 
-	/*SELECTS THE ELEMENT with ID sidebade*/
+@media screen and (max-width: 900px) {
+	.main-header {
+		height: 70px;
+		width: 900px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.main-header {
+		height: 60px;
+		width: 800px;
+	}
+}
+
+
+@media screen and (max-width: 700px) {
+	.main-header {
+		height: 60px;
+		width: 700px;
+	}
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+	.info-side { 
+		width: 600px; /* SETS info-side TO TAKE UP 100% OF ITS CONTAINER(flex-container) << do this b/c width IS ORIGINALLY FIXED AT 300px  !!! */
+	} 
+	.main-header {
+		height: 50px;
+		width: 600px;
+	}
+	.main-footer {
+		width: 600px;
+	}
+}
+
+
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+  .flex-container {   /* CHANGES EVERYTHING INSIDE flex-container(info-side AND art-side)*/
+		flex-direction: column; /* flex-direction: column SETS THE FLEXBOX ITEMS(info-side AND art-side) TO BE ORDERED LIKE A COLUMN (default IS ROW) !!! */
+		width: 100%;
+	}
+	.info-side { 
+		width: 500px; /* SETS info-side TO TAKE UP 100% OF ITS CONTAINER(flex-container) << do this b/c width IS ORIGINALLY FIXED AT 300px  !!! */
+	} 
 	.art-side {
-		width: 100%; /*sets width to 100% OF ITS CONTAINING ELEMENT. use % so can resize*/
-		float: none; /*deletes float*/
+		width: 500px;
+	}
+	.main-header {
+		width: 500px;
+	}
+	.main-footer {
+		width: 500px;
 	}
 }
