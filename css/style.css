@@ -1,14 +1,15 @@
 *{
 	padding: 0px;
-	/*box-sizing: border-box; /*w# SCHOOLS DID THIS, HOWEVER, it made the images not perfectly centered!!!!!!!!!!!!!!!!!!!!!*/
 }
+
+
 
 body {
 	background-color: #000;
-	color: #000; /*sets text colour*/
+	color: #000; 
 	font-family: Arial, Helvetica, sans-serif; 
 	line-height: 1.6em; /*sets line-height(space b/w lines) to 1.6(recommended)*/
-	margin: 0; /*zero out the margins SHOULD ALWAYS DO THIS I THINK*/
+	margin: 0; /*zero out the margins SHOULD ALWAYS DO THIS*/
 	
 	position: relative; /*NEED THESE TO KEEP FOOTER AT THE BOTTOM */
 	padding-bottom: 100px; /*NEED THESE TO KEEP FOOTER AT THE BOTTOM */
@@ -16,28 +17,32 @@ body {
 }
 
 
+
 /*Header that says N O X C I E L*/
 .main-header {
 	background-color: #000;
-	background-image: url('../images/noxciel-banner.jpg'); /*sets background colour*/
+	background-image: url('../images/noxciel-banner.jpg'); /*sets background to an image*/
 	background-repeat: no-repeat;
 
-	background-size: 100%;       /* NEED THESE*/
-	background-position: center; /*NEED THESE, always centers the image*/
-	padding: 20px; /*Makes header a little bigger by padding 30px black all around (noxciel image already black so blends together)*/
+	background-size: 100%;       /*NEED THESE to always center the image*/
+	background-position: center; /*NEED THESE to always center the image*/
+	padding: 30px 0px; /*30px padding TOP AND BOTTOM only*/
 	height: 190px;
+
+	box-sizing: border-box; /*INCLUDES THE PADDING AND BORDER INTO THE ELEMENT's TOTAL WIDTH(and height)*/
 }
 
 
-/*Everything is in container. We only want it to take up 100% so no white space on either side*/
+
+/*art-side and info-side are inside flex-contaier. We only want it to take up 100% of its containing element(body)*/
 .flex-container {
-	display: flex; /*everything is inside this flex-container so set display: flex so things inside like art-side and info-side can have width:300px; and flex-grow:1;*/
+	display: flex; /*display set to flex so everything is inside this flex-container can have flex properties like info-side can have width:300px; and flex-grow:1 which makes info-side a fixed width and art-side just expands to fill out remaining space*/
 	
-	/*overflow PROPERTY SPECIFIES WHETHER TO CLIP CONTENT(still show content)  O R  ADD SCROLLBARS
-	SCROLLBAR WHEN CONTENT IS TOO BIG FOR SPECIFIED AREA.(scroll, hidden, auto, or visible(default))*/
 	overflow: hidden; /*sets overflow hidden so when content too big NO SCROLLBAR*/ 
-	width: 100%;	/*sets width. Class container CAN IS 100% OF ITS CONTAINING ELEMENT. NOTE: should use % NOT px B/C then element can resize instead of getting cut off*/	
+	width: 100%;	/* flex-container width is 100% OF ITS CONTAINING ELEMENT. Should use % NOT px B/c then element can resize instead of getting cut off*/	
 }
+
+
 
 /*info-side take up 300px, art-side takes up the rest (flex) */
 .info-side {
@@ -47,16 +52,16 @@ body {
 	color: #000;
  	font-family: Helvetica, sans-serif; /*sets font, have to have background font in case browser don't support one*/
 	width: 300px; /*can use this flex property b/c .flex-container has display set to flex. .info side has a set width of 300px. art-side has a flex-grow:1 so it just grows to fill up all the extra space*/
-	display: flexbox;
 }
 
 .info-side .main-logo {
-	display: block; /*NEED THESE 2 TO CENTER THE IMAGE INSIDE info-side*/
-	margin: 0 auto; /*NEED THESE 2 TO CENTER THE IMAGE INSIDE info-side*/
+	display: block; /*NEEDED TO CENTER THE IMAGE INSIDE info-side*/
+	margin: 0 auto; /*NEEDED TO CENTER THE IMAGE INSIDE info-side*/
 	padding-top: 30px; /*top padding matches the top padding of the images on the art-side*/
 }
 
-.info-side p { /*Illustrator, concept artist, and graphic designer currently based in Toronto...*/
+/*Illustrator, concept artist, and graphic designer currently based in Toronto...*/
+.info-side p { 
 	color: black;
 	word-spacing: 2px;
 	font-size: 26px;
@@ -68,9 +73,10 @@ body {
 	text-align: left;
 }
 
-.info-side .socials { /*all the links and icons*/
-	display: flex;
-	justify-content: center;
+/*all the links and icons*/
+.info-side .socials { 
+	display: flex; /* Align the flex items at the center of the container */
+	justify-content: center; /* Align the flex items at the center of the container. The justify-content property aligns the flexible container's items when the items do not use all available space on the main-axis (horizontally)  << (align-items for vertically) */
 }
 
 .info-side .socials i:hover { /*hover over icons*/
@@ -103,48 +109,50 @@ body {
 	background-color: #C8C8C8; /*light grey*/
 	box-sizing: border-box; /*INCLUDES THE PADDING AND BORDER INTO THE ELEMENT's TOTAL WIDTH(and height)*/
 	flex-grow: 1; /*can use this flex property b/c .flex-container has display set to flex. .info side has a set width of 300px. art-side has a flex-grow:1 so it just grows to fill up all the extra space*/
-
-	flex-wrap: wrap; /*NEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW*/
-
-	display: flex; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/ 
-	justify-content: center; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/
-	align-items: center; /*THIS IS IT. THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/
-}
-.art-side .row {
+	flex-wrap: wrap; /*flex-wrap defines if the items are forced into a single line or can be flowed into mutltiple lines. "wrap" means can be multi-lines. DIRECTION IS DEFINED BY flex:direction*/
 	padding-top: 30px;
+
+	display: flex; /*THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/ 
+	justify-content: center; /*THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/
+	align-items: center; /*THIS IS THE SOLUTION TO THE MYTH OF PERFECT CETERING. Set both the justify-content and align-items properties to center, and the flex item will be perfectly centered*/
 }
-/*Here we are selecting all the images on the art-side ONLY WHEN the "row" class is hovered over*/
-.row:hover img { /*when you hover over the "row" class (which holds all the thumbnails), all the images turn opaque and scale() RESIZES THE ELEMENTS(imageS) TO 0.98 OF THEIR ORIGINAL. */ 
+
+/*Here we are selecting all the images on the art-side ONLY WHEN art-side is hovered over*/
+.art-side:hover img { /*when you hover over art-side (which holds all the thumbnails), all the images turn opaque and scale() RESIZES THE ELEMENTS(images) TO 0.98 OF THEIR ORIGINAL */ 
 	opacity: 0.6;
 	transition:opacity 0.2s;
 	transform: scale(0.98); 
 }
+
 .art-side img {
-	padding: 5px;
+	padding: 0px 5px;
 	border-radius: 10px; /*Slightly rounded corner*/
 }
-/*Here we are selecting an image when IT ITSELF is hovered over(before we were just selecting all the images when their container("row) was hovered over)*/
+
+/*Here we are selecting an image when IT ITSELF is hovered over*/
 .art-side img:hover { 
 	opacity: 1; /*the current image we on doesn't turn opaque*/
 	transform: scale(1); /*the current image we on doesn't get smaller(^0.98), it stays same size*/
+	box-shadow: 0 0 7px rgba(0, 0, 0, 0.5); /*slight shadow on current image*/
 }
 
 
 
-
-.main-footer { /*Noxciel footer*/
+/*Noxciel footer*/
+.main-footer { 
 	font-family: Helvetica, sans-serif;
 	font-weight: bold;
 	letter-spacing: 3px;
 	
 	position: absolute;
 	bottom: 0;
-	padding: 20px 20px;
+	padding: 20px 0px;
   width: 100%;
   background-color: #000;
 	color: white;
 	text-align: center;
 	box-sizing: border-box; 
+
 }
 
 
@@ -158,14 +166,14 @@ body {
 
 
 
-/*MEDIA QUERIES*/
+/*M E D I A   Q U E R I E S*/
 
 
 
 @media screen and (max-width: 1000px) {
 	.body {
 		width: 1000px; 
-		overflow-x: hidden;
+		overflow-x: hidden; /*overflow-x specifies what to do with content when it overflows at the left and right edges. "hidden" means content is clipped, no scrolling mechanism provided*/
 	}
 	.main-header {
 		box-sizing: border-box;
@@ -173,37 +181,33 @@ body {
 	}
 	.flex-container { 
 		box-sizing: border-box;
-	 flex-direction: column;
-	 background-color:white;
-	 justify-content: center;
-	 width: 1000px; 
+	  flex-direction: column; /*changes flex direction to column instead of default row*/
+	  background-color:white;
+	  justify-content: center;
+	  width: 1000px; 
 	}
 	.info-side { 
 		box-sizing: border-box;
 		align-content: center;
 		text-align: center;
 		background-color: white;
-		height: 350px;
+		height: 350px; /*info-side height used to take up whole page, now gotta shorten it*/
 		width: 1000px; 
 	} 
 	.description {
-		display: none;
+		display: none; /*deletes the description text*/
 	}
 	.contact-me {
-		display: none;
+		display: none; /*deletes contact-me text*/
 	}
 	.art-side {
 		box-sizing: border-box;
 		background-color:white;
-		display: flex;                /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		flex-direction: column;      /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		justify-content: center;    /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		width: 1000px;  
-	}
-	.row { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		width: 1000px; 
+
+		display: flex;           /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		flex-direction: column;  /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		justify-content: center; /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 	}
 	.main-footer {
 		box-sizing: border-box;
@@ -214,17 +218,11 @@ body {
 
 
 
-
-
-
-
-
-
 /*800px FOR IPADS*/
 @media screen and (max-width: 800px) {
 	.body {
 		width: 800px; 
-		overflow-x: hidden;
+		overflow-x: hidden; /*overflow-x specifies what to do with content when it overflows at the left and right edges. "hidden" means content is clipped, no scrolling mechanism provided*/
 	}
 	.main-header {
 		box-sizing: border-box;
@@ -232,7 +230,7 @@ body {
 	}
 	.flex-container { 
 		box-sizing: border-box;
-	 flex-direction: column;
+	 flex-direction: column; /*changes flex direction to column instead of default row*/
 	 background-color:white;
 	 justify-content: center;
 	 width: 800px; 
@@ -242,27 +240,23 @@ body {
 		align-content: center;
 		text-align: center;
 		background-color: white;
-		height: 350px;
+		height: 350px; /*info-side height used to take up whole page, now gotta shorten it*/
 		width: 800px; 
 	} 
 	.description {
-		display: none;
+		display: none; /*deletes the description text*/
 	}
 	.contact-me {
-		display: none;
+		display: none; /*deletes contact-me text*/
 	}
 	.art-side {
 		box-sizing: border-box;
 		background-color:white;
-		display: flex;              /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		flex-direction: column;     /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		justify-content: center;    /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 		width: 800px; 
-	}
-	.row { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		
+		display: flex;           /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		flex-direction: column;  /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		justify-content: center; /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 	}
 	.main-footer {
 		box-sizing: border-box;
@@ -273,17 +267,11 @@ body {
 
 
 
-
-
-
-
-
-
 /* 600 PIXELS WHEN THINGS NEED TO START SHIFTING */
 @media screen and (max-width: 600px) {
 	.body {
 		width: 600px; 
-		overflow-x: hidden;
+		overflow-x: hidden; /*overflow-x specifies what to do with content when it overflows at the left and right edges. "hidden" means content is clipped, no scrolling mechanism provided*/
 	}
 	.main-header {
 		box-sizing: border-box;
@@ -291,7 +279,7 @@ body {
 	}
 	.flex-container { 
 		box-sizing: border-box;
-	 flex-direction: column;
+	 flex-direction: column; /*changes flex direction to column instead of default row*/
 	 background-color:white;
 	 justify-content: center;
 	 width: 600px; 
@@ -301,27 +289,23 @@ body {
 		align-content: center;
 		text-align: center;
 		background-color: white;
-		height: 350px;
+		height: 350px; /*info-side height used to take up whole page, now gotta shorten it*/
 		width: 600px; 
 	} 
 	.description {
-		display: none;
+		display: none; /*deletes the description text*/
 	}
 	.contact-me {
-		display: none;
+		display: none; /*deletes contact-me text*/
 	}
 	.art-side {
 		box-sizing: border-box;
 		background-color:white;
-		display: flex;             /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		flex-direction: column;    /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		justify-content: center;   /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 		width: 600px; 
-	}
-	.row { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+
+		display: flex;           /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		flex-direction: column;  /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		justify-content: center; /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 	}
 	.main-footer {
 		box-sizing: border-box;
@@ -332,17 +316,11 @@ body {
 
 
 
-
-
-
-
-
-
 /*PHONES*/
 @media screen and (max-width: 400px) {
 	.body {
-		width: 400px
-		/* overflow-x: hidden; */
+		width: 400px;
+		overflow-x: hidden; /*overflow-x specifies what to do with content when it overflows at the left and right edges. "hidden" means content is clipped, no scrolling mechanism provided*/
 	}
 	.main-header {
 		box-sizing: border-box;
@@ -350,7 +328,7 @@ body {
 	}
 	.flex-container { 
 		box-sizing: border-box;
-	 flex-direction: column;
+	 flex-direction: column; /*changes flex direction to column instead of default row*/
 	 background-color: white;
 	 justify-content: center;
 	 width: 400px; 
@@ -360,27 +338,23 @@ body {
 		align-content: center;
 		text-align: center;
 		background-color: white;
-		height: 350px;
+		height: 350px; /*info-side height used to take up whole page, now gotta shorten it*/
 		width: 400px;
 	} 
 	.description {
-		display: none;
+		display: none; /*deletes the description text*/
 	}
 	.contact-me {
-		display: none;
+		display: none; /*deletes contact-me text*/
 	}
 	.art-side {
 		box-sizing: border-box;
 		background-color: white;
-		display: flex;            /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		flex-direction: column;   /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		justify-content: center;  /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 		width: 400px; 
-	}
-	.row { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+
+		display: flex;           /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		flex-direction: column;  /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		justify-content: center; /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 	}
 	.main-footer {
 		box-sizing: border-box;
@@ -391,17 +365,11 @@ body {
 
 
 
-
-
-
-
-
-
 /*SMALLER PHONES LIKE IPHONE 5*/
 @media screen and (max-width: 350px) {
 	.body {
-		width: 350px
-		/* overflow-x: hidden; */
+		width: 350px;
+		overflow-x: hidden; /*overflow-x specifies what to do with content when it overflows at the left and right edges. "hidden" means content is clipped, no scrolling mechanism provided*/
 	}
 	.main-header {
 		box-sizing: border-box;
@@ -409,7 +377,7 @@ body {
 	}
 	.flex-container { 
 		box-sizing: border-box;
-	 flex-direction: column;
+	 flex-direction: column; /*changes flex direction to column instead of default row*/
 	 background-color: white;
 	 justify-content: center;
 	 width: 350px; 
@@ -419,27 +387,23 @@ body {
 		align-content: center;
 		text-align: center;
 		background-color: white;
-		height: 350px;
+		height: 350px; /*info-side height used to take up whole page, now gotta shorten it*/
 		width: 350px; 
 	} 
 	.description {
-		display: none;
+		display: none; /*deletes the description text*/
 	}
 	.contact-me {
-		display: none;
+		display: none; /*deletes contact-me text*/
 	}
 	.art-side {
 		box-sizing: border-box;
 		background-color: white;
-		display: flex;             /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		flex-direction: column;    /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		justify-content: center;   /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
-		width: 350px;  
-	}
-	.row { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		width: 350px;
+
+		display: flex;           /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		flex-direction: column;  /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		justify-content: center; /*NEEDED TO MAKE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 	}
 	.main-footer {
 		box-sizing: border-box;
