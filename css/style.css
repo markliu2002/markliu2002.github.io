@@ -195,24 +195,15 @@ body {
 	.art-side {
 		box-sizing: border-box;
 		background-color:white;
-		flex-direction: column;
+		display: flex;                /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		flex-direction: column;      /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		justify-content: center;    /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 		width: 1000px;  
 	}
-	.row1 { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
+	.row { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
 		display: flex;
 		flex-direction: column;
-	}
-	.row2 {
-		display: flex;
-		flex-direction: column;
-	}
-	.row3 {
-		display: flex;
-		flex-direction: column;
-	}
-	.row4 {
-		display: flex;
-		flex-direction: column;
+		justify-content: center;
 	}
 	.main-footer {
 		box-sizing: border-box;
@@ -263,24 +254,15 @@ body {
 	.art-side {
 		box-sizing: border-box;
 		background-color:white;
-		flex-direction: column;
+		display: flex;              /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		flex-direction: column;     /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		justify-content: center;    /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 		width: 800px; 
 	}
-	.row1 { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
+	.row { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
 		display: flex;
 		flex-direction: column;
-	}
-	.row2 {
-		display: flex;
-		flex-direction: column;
-	}
-	.row3 {
-		display: flex;
-		flex-direction: column;
-	}
-	.row4 {
-		display: flex;
-		flex-direction: column;
+		justify-content: center;
 	}
 	.main-footer {
 		box-sizing: border-box;
@@ -331,24 +313,15 @@ body {
 	.art-side {
 		box-sizing: border-box;
 		background-color:white;
-		flex-direction: column;
+		display: flex;             /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		flex-direction: column;    /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		justify-content: center;   /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 		width: 600px; 
 	}
-	.row1 { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
+	.row { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
 		display: flex;
 		flex-direction: column;
-	}
-	.row2 {
-		display: flex;
-		flex-direction: column;
-	}
-	.row3 {
-		display: flex;
-		flex-direction: column;
-	}
-	.row4 {
-		display: flex;
-		flex-direction: column;
+		justify-content: center;
 	}
 	.main-footer {
 		box-sizing: border-box;
@@ -399,24 +372,15 @@ body {
 	.art-side {
 		box-sizing: border-box;
 		background-color: white;
-		flex-direction: column;
+		display: flex;            /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		flex-direction: column;   /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		justify-content: center;  /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 		width: 400px; 
 	}
-	.row1 { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
+	.row { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
 		display: flex;
 		flex-direction: column;
-	}
-	.row2 {
-		display: flex;
-		flex-direction: column;
-	}
-	.row3 {
-		display: flex;
-		flex-direction: column;
-	}
-	.row4 {
-		display: flex;
-		flex-direction: column;
+		justify-content: center;
 	}
 	.main-footer {
 		box-sizing: border-box;
@@ -467,24 +431,15 @@ body {
 	.art-side {
 		box-sizing: border-box;
 		background-color: white;
-		flex-direction: column;
+		display: flex;             /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		flex-direction: column;    /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
+		justify-content: center;   /*THESE 3 MADE THE PICTURES CENTER HORIZONTALLY FOR MOBILE */
 		width: 350px;  
 	}
-	.row1 { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
+	.row { /*EACH ROW HAS CLASS EITHER row1, row2, row3, or row4. EACH ROW HAS 4 PICTURES. WHEN SCREEN GETS SMALL, WE TURN display:flex AND flex-direction: column SO THE PICTURES INSIDE EACH ROW GOES DOWN IN A COLUMN*/
 		display: flex;
 		flex-direction: column;
-	}
-	.row2 {
-		display: flex;
-		flex-direction: column;
-	}
-	.row3 {
-		display: flex;
-		flex-direction: column;
-	}
-	.row4 {
-		display: flex;
-		flex-direction: column;
+		justify-content: center;
 	}
 	.main-footer {
 		box-sizing: border-box;
