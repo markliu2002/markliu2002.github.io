@@ -1,5 +1,5 @@
-# Art POrtfolio Website
-Art portfolio website made with HTML, CSS, and JavaScript.
+# Art Portfolio Website
+An art portfolio website made with HTML, CSS, and JavaScript.
 
 ## Desktop View
 ![Desktop View](https://github.com/markliu2002/markliu2002.github.io/blob/master/images/noxciel_desktop.png?raw=true)
